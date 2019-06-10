@@ -1,0 +1,101 @@
+//
+//  PQViewModel.swift
+//  SmartMore
+//
+//  Created by 盘国权 on 2019/4/1.
+//  Copyright © 2019 pgq. All rights reserved.
+//
+
+import Foundation
+import RxSwift
+import RxCocoa
+
+protocol PQViewModelType {
+    associatedtype E
+    
+    var bag: DisposeBag { get }
+    var items: Observable<[E]> { get }
+    
+    var itemsSubject: BehaviorRelay<[E]> { get }
+}
+
+open class PQViewModel<Element>: NSObject, PQViewModelType {
+    public typealias E = Element
+    
+    open var bag = DisposeBag()
+    public var items: Observable<[E]> {
+        return itemsSubject.asObservable().share(replay: 1)
+    }
+    
+    public override init() {
+        self.itemsSubject = BehaviorRelay<[E]>(value: [])
+    }
+    
+    public init(localItems: [E]) {
+        self.itemsSubject = BehaviorRelay<[E]>(value: localItems)
+    }
+    
+    internal private(set) var itemsSubject: BehaviorRelay<[E]>
+    open var lastIndex: Int?
+    
+    
+    // MARK: - 提供一些默认的方法
+    open func delete(_ index: Int) {
+        var list = itemsSubject.value
+        if index >= 0 && index < list.count {
+            list.remove(at: index)
+        }
+        itemsSubject.accept(list)
+    }
+    
+    open func append(_ item: E) {
+        var list = itemsSubject.value
+        list.append(item)
+        itemsSubject.accept(list)
+    }
+    
+    open func insert(_ item: E, at index: Int) {
+        var list = itemsSubject.value
+        list.insert(item, at: index)
+        itemsSubject.accept(list)
+    }
+    
+    open func refresh() {
+        let list = itemsSubject.value
+        itemsSubject.accept(list)
+    }
+    
+    open func removeAll() {
+        itemsSubject.accept([])
+    }
+    
+    open func model(_ index: Int) throws -> E {
+        if index < itemsSubject.value.count && index > -1{
+            return itemsSubject.value[index]
+        }
+        throw  NSError(domain: "不在范围内", code: -1, userInfo: nil)
+    }
+}
+
+extension PQViewModel where E: PQEditType {
+    func singleSelected(_ index: Int) {
+        var list = itemsSubject.value
+        
+        if let lastIndex = lastIndex {
+            list[lastIndex].isSelected = false
+        }
+        
+        list[index].isSelected = true
+        lastIndex = index
+        
+        itemsSubject.accept(list)
+    }
+    
+    func multipleSelected(_ index: Int) {
+        var list = itemsSubject.value
+        list[index].isSelected = !list[index].isSelected
+        itemsSubject.accept(list)
+    }
+}
+
+
