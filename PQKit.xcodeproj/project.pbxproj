@@ -137,6 +137,8 @@
 		604FBACD22AE7B1F009D3F43 /* PQSQLiteable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604FBAC922AE7B1F009D3F43 /* PQSQLiteable.swift */; };
 		6052C37922AF771000C11D9C /* PQKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 604FB88622ADE3C3009D3F43 /* PQKit.framework */; };
 		6052C37A22AF771000C11D9C /* PQKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 604FB88622ADE3C3009D3F43 /* PQKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6052C38A22AFA77100C11D9C /* PQUpgradeVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6052C38822AFA77100C11D9C /* PQUpgradeVersion.swift */; };
+		6052C38B22AFA77100C11D9C /* PQAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6052C38922AFA77100C11D9C /* PQAlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -366,6 +368,8 @@
 		604FBAC722AE7B1F009D3F43 /* PQCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PQCache.swift; sourceTree = "<group>"; };
 		604FBAC822AE7B1F009D3F43 /* SwiteSqliteExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiteSqliteExtensions.swift; sourceTree = "<group>"; };
 		604FBAC922AE7B1F009D3F43 /* PQSQLiteable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PQSQLiteable.swift; sourceTree = "<group>"; };
+		6052C38822AFA77100C11D9C /* PQUpgradeVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PQUpgradeVersion.swift; sourceTree = "<group>"; };
+		6052C38922AFA77100C11D9C /* PQAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PQAlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -503,6 +507,7 @@
 		604FB8A622ADE534009D3F43 /* PQTools */ = {
 			isa = PBXGroup;
 			children = (
+				6052C38722AFA77100C11D9C /* Controllers */,
 				604FB8BD22ADEAD4009D3F43 /* Extensions */,
 				604FB8D422ADEAD5009D3F43 /* Foundation */,
 				604FB8E422ADEAD5009D3F43 /* Other */,
@@ -871,6 +876,15 @@
 				604FBABA22AE7AB6009D3F43 /* Info.plist */,
 			);
 			path = PQSQLiteTests;
+			sourceTree = "<group>";
+		};
+		6052C38722AFA77100C11D9C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6052C38822AFA77100C11D9C /* PQUpgradeVersion.swift */,
+				6052C38922AFA77100C11D9C /* PQAlertController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1358,6 +1372,7 @@
 				604FB8F422ADEAD5009D3F43 /* SVProgressAnimatedView.m in Sources */,
 				604FB90822ADEAD5009D3F43 /* PQColor.swift in Sources */,
 				604FB8ED22ADEAD5009D3F43 /* UISlider+PQ.swift in Sources */,
+				6052C38A22AFA77100C11D9C /* PQUpgradeVersion.swift in Sources */,
 				604FB90922ADEAD5009D3F43 /* PQNavgationItem.swift in Sources */,
 				604FB96222AE448C009D3F43 /* PQCircleColorView.swift in Sources */,
 				604FB8F922ADEAD5009D3F43 /* SVIndefiniteAnimatedView.m in Sources */,
@@ -1386,6 +1401,7 @@
 				604FB90322ADEAD5009D3F43 /* PQTextField.swift in Sources */,
 				604FB90222ADEAD5009D3F43 /* PQButton.swift in Sources */,
 				604FB8F122ADEAD5009D3F43 /* SVRadialGradientLayer.m in Sources */,
+				6052C38B22AFA77100C11D9C /* PQAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
