@@ -135,6 +135,8 @@
 		604FBACB22AE7B1F009D3F43 /* PQCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604FBAC722AE7B1F009D3F43 /* PQCache.swift */; };
 		604FBACC22AE7B1F009D3F43 /* SwiteSqliteExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604FBAC822AE7B1F009D3F43 /* SwiteSqliteExtensions.swift */; };
 		604FBACD22AE7B1F009D3F43 /* PQSQLiteable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604FBAC922AE7B1F009D3F43 /* PQSQLiteable.swift */; };
+		6052C37922AF771000C11D9C /* PQKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 604FB88622ADE3C3009D3F43 /* PQKit.framework */; };
+		6052C37A22AF771000C11D9C /* PQKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 604FB88622ADE3C3009D3F43 /* PQKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +196,13 @@
 			remoteGlobalIDString = 604FBAA822AE7AB6009D3F43;
 			remoteInfo = PQSQLite;
 		};
+		6052C37B22AF771000C11D9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 604FB87D22ADE3C3009D3F43 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 604FB88522ADE3C3009D3F43;
+			remoteInfo = PQKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -203,6 +212,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6052C37A22AF771000C11D9C /* PQKit.framework in Embed Frameworks */,
 				604FBABF22AE7AB6009D3F43 /* PQSQLite.framework in Embed Frameworks */,
 				604FB94822AE2582009D3F43 /* PQTransition.framework in Embed Frameworks */,
 				604FB95122AE3CB0009D3F43 /* PQTools.framework in Embed Frameworks */,
@@ -409,6 +419,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6052C37922AF771000C11D9C /* PQKit.framework in Frameworks */,
 				604FBABE22AE7AB6009D3F43 /* PQSQLite.framework in Frameworks */,
 				604FB94722AE2582009D3F43 /* PQTransition.framework in Frameworks */,
 				604FB95022AE3CB0009D3F43 /* PQTools.framework in Frameworks */,
@@ -1050,6 +1061,7 @@
 				604FB94A22AE2582009D3F43 /* PBXTargetDependency */,
 				604FB95322AE3CB0009D3F43 /* PBXTargetDependency */,
 				604FBABD22AE7AB6009D3F43 /* PBXTargetDependency */,
+				6052C37C22AF771000C11D9C /* PBXTargetDependency */,
 			);
 			name = PQKitDemo;
 			productName = PQKitDemo;
@@ -1475,6 +1487,11 @@
 			isa = PBXTargetDependency;
 			target = 604FBAA822AE7AB6009D3F43 /* PQSQLite */;
 			targetProxy = 604FBABC22AE7AB6009D3F43 /* PBXContainerItemProxy */;
+		};
+		6052C37C22AF771000C11D9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 604FB88522ADE3C3009D3F43 /* PQKit */;
+			targetProxy = 6052C37B22AF771000C11D9C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

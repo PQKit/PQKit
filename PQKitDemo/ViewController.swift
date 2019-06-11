@@ -9,6 +9,9 @@
 import UIKit
 import PQTransition
 import PQTools
+import PQKit
+import RxSwift
+
 
 class ViewController: UIViewController {
 
@@ -20,6 +23,10 @@ class ViewController: UIViewController {
             print(Date.timeIntervalSinceReferenceDate, " value - ",$0)
         }
         view.addSubview(colorSlider)
+        
+        
+        
+        
     }
     
     var animationTypes: [PQTransitionAnimationType] = [

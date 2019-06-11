@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PQTools
 
 public extension String {
     /// suport rgb rgba 
@@ -33,6 +34,7 @@ public extension String {
             blue = CGFloat(hex >> 8 & 0xff) / 255.0
             alpha = CGFloat(hex & 0xff)
         } else {
+            PQPrint("读取颜色失败了，请检查输入是否正确: str - \(self)")
             return nil
         }
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
@@ -142,14 +144,14 @@ public struct PQSkipTextView: Codable {
 open class PQSkip: NSObject, Codable {
     public static internal(set) var shared = PQSkip()
     
-    var navigationBar: PQSkipNavigationBar = .default
-    var controller: PQSkipController = .default
-    var tbCell: PQSkipTBCell = .default
-    var cvCell: PQSkipCVCell = .default
-    var label: PQSkipLabel = .default
-    var button: PQSkipButton = .default
-    var textField: PQSkipTextField = .default
-    var textView: PQSkipTextView = .default
+    open var navigationBar: PQSkipNavigationBar = .default
+    open var controller: PQSkipController = .default
+    open var tbCell: PQSkipTBCell = .default
+    open var cvCell: PQSkipCVCell = .default
+    open var label: PQSkipLabel = .default
+    open var button: PQSkipButton = .default
+    open var textField: PQSkipTextField = .default
+    open var textView: PQSkipTextView = .default
     
     
     public func readSkip(for url: URL, completion: @escaping (Error?) -> ()) {
@@ -167,6 +169,7 @@ open class PQSkip: NSObject, Codable {
         do {
             let skip = try JSONDecoder().decode(PQSkip.self, from: data)
             PQSkip.shared = skip
+            completion(nil)
         } catch {
             completion(error)
         }

@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol PQViewModelType {
+public protocol PQViewModelType {
     associatedtype E
     
     var bag: DisposeBag { get }
@@ -23,19 +23,19 @@ open class PQViewModel<Element>: NSObject, PQViewModelType {
     public typealias E = Element
     
     open var bag = DisposeBag()
-    public var items: Observable<[E]> {
+    public var items: Observable<[Element]> {
         return itemsSubject.asObservable().share(replay: 1)
     }
     
     public override init() {
-        self.itemsSubject = BehaviorRelay<[E]>(value: [])
+        self.itemsSubject = BehaviorRelay<[Element]>(value: [])
     }
     
-    public init(localItems: [E]) {
-        self.itemsSubject = BehaviorRelay<[E]>(value: localItems)
+    public init(localItems: [Element]) {
+        self.itemsSubject = BehaviorRelay<[Element]>(value: localItems)
     }
     
-    internal private(set) var itemsSubject: BehaviorRelay<[E]>
+    public internal(set) var itemsSubject: BehaviorRelay<[Element]>
     open var lastIndex: Int?
     
     
@@ -48,13 +48,13 @@ open class PQViewModel<Element>: NSObject, PQViewModelType {
         itemsSubject.accept(list)
     }
     
-    open func append(_ item: E) {
+    open func append(_ item: Element) {
         var list = itemsSubject.value
         list.append(item)
         itemsSubject.accept(list)
     }
     
-    open func insert(_ item: E, at index: Int) {
+    open func insert(_ item: Element, at index: Int) {
         var list = itemsSubject.value
         list.insert(item, at: index)
         itemsSubject.accept(list)
@@ -69,7 +69,7 @@ open class PQViewModel<Element>: NSObject, PQViewModelType {
         itemsSubject.accept([])
     }
     
-    open func model(_ index: Int) throws -> E {
+    open func model(_ index: Int) throws -> Element {
         if index < itemsSubject.value.count && index > -1{
             return itemsSubject.value[index]
         }
@@ -77,7 +77,7 @@ open class PQViewModel<Element>: NSObject, PQViewModelType {
     }
 }
 
-extension PQViewModel where E: PQEditType {
+extension PQViewModel where Element: PQEditType {
     func singleSelected(_ index: Int) {
         var list = itemsSubject.value
         
