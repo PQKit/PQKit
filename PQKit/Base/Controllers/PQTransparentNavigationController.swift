@@ -8,9 +8,9 @@
 
 import UIKit
 
-class PQTransparentNavigationController: PQController {
+open class PQTransparentNavigationController: PQController {
     
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barTintColor = .clear
@@ -18,7 +18,7 @@ class PQTransparentNavigationController: PQController {
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         navigationController?.navigationBar.isHidden = false

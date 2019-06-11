@@ -8,9 +8,9 @@
 
 import UIKit
 
-class PQNavigationController: UINavigationController {
+open class PQNavigationController: UINavigationController {
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
         navigationBar.isTranslucent = false
@@ -25,18 +25,18 @@ class PQNavigationController: UINavigationController {
         interactivePopGestureRecognizer?.isEnabled = true
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    override var prefersStatusBarHidden: Bool {
+    override open var prefersStatusBarHidden: Bool {
         return false
     }
     
 
     
     
-    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    override open func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if self.viewControllers.count > 0 {
             viewController.hidesBottomBarWhenPushed = true
             
