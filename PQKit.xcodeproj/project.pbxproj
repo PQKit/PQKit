@@ -370,6 +370,7 @@
 		604FBAC922AE7B1F009D3F43 /* PQSQLiteable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PQSQLiteable.swift; sourceTree = "<group>"; };
 		6052C38822AFA77100C11D9C /* PQUpgradeVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PQUpgradeVersion.swift; sourceTree = "<group>"; };
 		6052C38922AFA77100C11D9C /* PQAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PQAlertController.swift; sourceTree = "<group>"; };
+		60D50DA122C0B487007CFA29 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,6 +452,7 @@
 		604FB87C22ADE3C3009D3F43 = {
 			isa = PBXGroup;
 			children = (
+				60D50DA122C0B487007CFA29 /* Cartfile */,
 				604FB88822ADE3C3009D3F43 /* PQKit */,
 				604FB89322ADE3C3009D3F43 /* PQKitTests */,
 				604FB8A622ADE534009D3F43 /* PQTools */,
