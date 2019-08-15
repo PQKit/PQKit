@@ -42,12 +42,11 @@ public extension String {
 }
 
 public struct PQSkipFont: Codable {
-    var size: CGFloat
-    var color: String
-    var family: String?
-    var bold: Bool
-    
-    var font: UIFont {
+    public var size: CGFloat
+    public var color: String
+    public var family: String?
+    public var bold: Bool
+    public var font: UIFont {
         if let family = family {
             if let font = UIFont(name: family, size: size) {
                 return font
@@ -61,84 +60,82 @@ public struct PQSkipFont: Codable {
         
     }
     
-    static var largeTitle = PQSkipFont(size: 26, color: "0x000000ff", family: nil, bold: false)
-    static var midTitle = PQSkipFont(size: 23, color: "0x000000ff", family: nil, bold: false)
-    static var smallTitle = PQSkipFont(size: 20, color: "0x000000ff", family: nil, bold: false)
-    static var context = PQSkipFont(size: 17, color: "0x000000ff", family: nil, bold: false)
-    static var hint = PQSkipFont(size: 13, color: "0x000000ff", family: nil, bold: false)
-    
-    
-    static var selectedTitle = PQSkipFont(size: 15, color: "0x000000ff", family: nil, bold: false)
-    static var normalTitle = PQSkipFont(size: 15, color: "0x000000ff", family: nil, bold: false)
-    
-    
-    static var textField = PQSkipFont(size: 15, color: "0x000000ff", family: nil, bold: false)
-    static var textView = PQSkipFont(size: 15, color: "0x000000ff", family: nil, bold: false)
+    public static var largeTitle = PQSkipFont(size: 26, color: "0x000000ff", family: nil, bold: false)
+    public static var midTitle = PQSkipFont(size: 23, color: "0x000000ff", family: nil, bold: false)
+    public static var smallTitle = PQSkipFont(size: 20, color: "0x000000ff", family: nil, bold: false)
+    public static var context = PQSkipFont(size: 17, color: "0x000000ff", family: nil, bold: false)
+    public static var hint = PQSkipFont(size: 13, color: "0x000000ff", family: nil, bold: false)
+
+    public static var selectedTitle = PQSkipFont(size: 15, color: "0x000000ff", family: nil, bold: false)
+    public static var normalTitle = PQSkipFont(size: 15, color: "0x000000ff", family: nil, bold: false)
+
+    public static var textField = PQSkipFont(size: 15, color: "0x000000ff", family: nil, bold: false)
+    public static var textView = PQSkipFont(size: 15, color: "0x000000ff", family: nil, bold: false)
 }
 
 public struct PQSkipNavigationBar: Codable {
-    var isHidden: Bool
-    var barTintColor: String?
-    var isTranslucent: Bool
-    var tintColor: String?
-    var font: PQSkipFont
+    public var isHidden: Bool
+    public var barTintColor: String?
+    public var isTranslucent: Bool
+    public var tintColor: String?
+    public var font: PQSkipFont
     
-    static let `default` = PQSkipNavigationBar(isHidden: false, barTintColor: "0xffffffff", isTranslucent: false, tintColor: "0xffffffff", font: PQSkipFont(size: 17, color: "0xffffffff", family: nil, bold: false))
+    public static let `default` = PQSkipNavigationBar(isHidden: false, barTintColor: "0xffffffff", isTranslucent: false, tintColor: "0xffffffff", font: PQSkipFont(size: 17, color: "0xffffffff", family: nil, bold: false))
 }
 
 public struct PQSkipController: Codable {
-    var backgroundColor: String?
+    public var backgroundColor: String?
     
-    static let `default` = PQSkipController(backgroundColor: "0xffffffff")
+    public static let `default` = PQSkipController(backgroundColor: "0xffffffff")
 }
 
 public struct PQSkipTBCell: Codable {
-    var backgroundColor: String?
-    var lineColor: String?
-    var lineHeight: CGFloat
-    var lineMargin: [CGFloat]
-    static let `default` = PQSkipTBCell(backgroundColor: "0xffffffff", lineColor: "0xffffffff", lineHeight: 1, lineMargin: [0,0])
+    public var backgroundColor: String?
+    public var lineColor: String?
+    public var lineHeight: CGFloat
+    public var lineMargin: [CGFloat]
+    public static let `default` = PQSkipTBCell(backgroundColor: "0xffffffff", lineColor: "0xffffffff", lineHeight: 1, lineMargin: [0,0])
 }
 
 public struct PQSkipCVCell: Codable {
-    var backgroundColor: String?
-    
-    static let `default` = PQSkipCVCell(backgroundColor: "0xffffffff")
+    public var backgroundColor: String?
+
+    public static let `default` = PQSkipCVCell(backgroundColor: "0xffffffff")
 }
 
 public struct PQSkipLabel: Codable {
-    var largeTitle: PQSkipFont
-    var midTitle: PQSkipFont
-    var smallTitle: PQSkipFont
-    var context: PQSkipFont
-    var hint: PQSkipFont
+    public var largeTitle: PQSkipFont
+    public var midTitle: PQSkipFont
+    public var smallTitle: PQSkipFont
+    public var context: PQSkipFont
+    public var hint: PQSkipFont
     
-    static var `default` = PQSkipLabel(largeTitle: .largeTitle, midTitle: .midTitle, smallTitle: .smallTitle, context: .context, hint: .hint)
+    public static var `default` = PQSkipLabel(largeTitle: .largeTitle, midTitle: .midTitle, smallTitle: .smallTitle, context: .context, hint: .hint)
 }
 
 public struct PQSkipButton: Codable {
-    var normalTitle: PQSkipFont
-    var selectedTitle: PQSkipFont
+    public var normalTitle: PQSkipFont
+    public var selectedTitle: PQSkipFont
     
-    static var `default` = PQSkipButton(normalTitle: .normalTitle, selectedTitle: .selectedTitle)
+    public static var `default` = PQSkipButton(normalTitle: .normalTitle, selectedTitle: .selectedTitle)
 }
 
 public struct PQSkipTextField: Codable {
-    var placehodloerColor: String?
-    var cursorColor: String?
-    var textColor: String?
-    var font: PQSkipFont
+    public var placehodloerColor: String?
+    public var cursorColor: String?
+    public var textColor: String?
+    public var font: PQSkipFont
     
-    static var `default` = PQSkipTextField(placehodloerColor: "0x000000ff", cursorColor: "0x000000ff", textColor: "0x000000ff", font: .textField)
+    public static var `default` = PQSkipTextField(placehodloerColor: "0x000000ff", cursorColor: "0x000000ff", textColor: "0x000000ff", font: .textField)
 }
 
 public struct PQSkipTextView: Codable {
-    var placehodloerColor: String?
-    var cursorColor: String?
-    var textColor: String?
-    var font: PQSkipFont
+    public var placehodloerColor: String?
+    public var cursorColor: String?
+    public var textColor: String?
+    public var font: PQSkipFont
     
-    static var `default` = PQSkipTextView(placehodloerColor: "0x000000ff", cursorColor: "0x000000ff", textColor: "0x000000ff", font: .textField)
+    public static var `default` = PQSkipTextView(placehodloerColor: "0x000000ff", cursorColor: "0x000000ff", textColor: "0x000000ff", font: .textField)
 }
 
 open class PQSkip: NSObject, Codable {

@@ -77,7 +77,7 @@ open class PQViewModel<Element>: NSObject, PQViewModelType {
     }
 }
 
-extension PQViewModel where Element: PQEditType {
+public extension PQViewModel where Element: PQEditType {
     func singleSelected(_ index: Int) {
         var list = itemsSubject.value
         
