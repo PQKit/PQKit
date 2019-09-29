@@ -9,7 +9,8 @@ public enum PQAddBarItemDirection: Int {
     case right = 1
 }
 
-private var popImageColor: UIColor = .white
+/// 返回按钮的填充颜色
+public var popImageColor: UIColor = .white
 
 public typealias NavigationItemBlock = (_ btn: PQButton?) -> ()
 public protocol PQNavigationItem where Self: UIViewController {
@@ -49,7 +50,7 @@ public extension PQNavigationItem {
         pq_pop(backImageColor: popImageColor, block)
     }
     
-    func pq_pop(_ size: CGSize = CGSize(width: 45, height: 25), backImageColor: UIColor = .white ,_ block:@escaping NavigationItemBlock){
+    func pq_pop(_ size: CGSize = CGSize(width: 45, height: 25), backImageColor: UIColor = popImageColor ,_ block:@escaping NavigationItemBlock){
         let image = drawBackImage(backImageColor, lineWidth: 2, size: size)
         pq_pop(image, size: .zero, block: block)
     }
@@ -169,6 +170,7 @@ public extension PQNavigationItem {
 
 public extension UINavigationController {
     
+    /// 是否显示导航栏的下划线
     func showLine(_ show: Bool = true){
         findBotomLineUnder(navigationBar)?.isHidden = !show
     }

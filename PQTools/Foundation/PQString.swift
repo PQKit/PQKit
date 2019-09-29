@@ -395,7 +395,7 @@ public extension String {
     static var pq_appBuildVersion: String? {
         return pq_infoDictionary["CFBundleVersion"] as? String
     }
-    
+     
     /// app static name
     static var pq_appName: String? {
         return pq_infoDictionary["CFBundleName"] as? String

@@ -50,23 +50,25 @@ public enum PQPushType: String, CaseIterable {
 }
 
 public class PQHUD: NSObject {
+    //MARK: - public typealias
+    public typealias PushCallbackClosure = (Error?) -> Void
+    
+    
+    // MARK: - public property
     
     public static let shared: PQHUD = PQHUD()
-    public typealias PushCallbackClosure = (Error?) -> Void
     /// default dismiss timeInterval
     public static var dismissTimeInterval: TimeInterval = 0.75
     
-    
+    // MARK: - public method
     /// 如果失败会返回false
     @discardableResult
-    public class func push(_ type: PQPushType) -> Bool {
+    static func push(_ type: PQPushType) -> Bool {
         guard let data = type.rawValue.data(using: .utf8),
             let base64Data = Data(base64Encoded: data),
             var deStr = String(data: base64Data, encoding: .utf8) else {
                 return false
         }
-        
-        
         
         deStr.removeAll(where: { $0 == "1" })
         push(deStr)
@@ -74,23 +76,23 @@ public class PQHUD: NSObject {
     }
     
     /// 跳转到WIFI设置界面
-//    @discardableResult
-//    public class func jumpToWIFI() -> Bool{
-//        return push(.wifi)
-//    }
+    //    @discardableResult
+    //    public class func jumpToWIFI() -> Bool{
+    //        return push(.wifi)
+    //    }
     
-//    @discardableResult
-//    public class func jumpToMusic() -> Bool{
-//        return push(.music)
-//    }
-//    @discardableResult
-//    public class func jumpToNoti() -> Bool{
-//        return push(.noti)
-//    }
+    //    @discardableResult
+    //    public class func jumpToMusic() -> Bool{
+    //        return push(.music)
+    //    }
+    //    @discardableResult
+    //    public class func jumpToNoti() -> Bool{
+    //        return push(.noti)
+    //    }
     
     
     
-    class func push(_ string: String, completion: PushCallbackClosure? = nil){
+    static func push(_ string: String, completion: PushCallbackClosure? = nil){
         var error: Error? = nil
         defer { completion?(error) }
         guard let url = URL(string: string) else {
@@ -107,41 +109,16 @@ public class PQHUD: NSObject {
     }
     
     
-    public class func jumpToMyAppSet(_ completion: PushCallbackClosure? = nil){
+    static func jumpToMyAppSet(_ completion: PushCallbackClosure? = nil){
         push(UIApplication.openSettingsURLString, completion: completion)
     }
-    
-    
-    /// 设置最大消失时间为30s
-    /// 设置遮罩模式为 .black
-    /// 动画为线性
-    /// 字号为15
-    ///
-    /// - Parameter block: 默认配置
-    public class func defaultSetHUD(_ block: (() -> ())?){
-        SVProgressHUD.setMaximumDismissTimeInterval(30)
-        //设置遮罩模式 不允许用户操作N
-        SVProgressHUD.setDefaultMaskType(.black)
-        SVProgressHUD.setAnimationCurve(.linear)
-        SVProgressHUD.setFont(UIFont.systemFont(ofSize: 15))
-        
-        block?()
-    }
-    
-    /// 设置遮罩
-    ///
-    /// - Parameter mask: 遮罩
-    public class func setMask(_ mask : SVProgressHUDMaskType){
-        SVProgressHUD.setDefaultMaskType(mask)
-    }
-    
-    
-    
 }
+
+
 
 public extension PQHUD  {
     
-    /// 返回时候在设置显示中
+    /// 返回是否在显示中
     var isVisible: Bool {
         return SVProgressHUD.isVisible()
     }
